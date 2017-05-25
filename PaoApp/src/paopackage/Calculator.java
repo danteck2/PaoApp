@@ -20,9 +20,13 @@ public class Calculator {
 	JButton button9;
 	JButton buttonPoint;
 	JButton buttonEqual;
+	JButton buttonPlus;
+	JButton buttonMinus;
+	JButton buttonMult;
+	JButton buttonDiv;
 	JPanel p1;
 
-    public void setDisplayValue(String val){
+    public void setDisplayValue(String val) {
         displayField.setText(val);
     }
     
@@ -30,7 +34,7 @@ public class Calculator {
         return displayField.getText();
     }
     
-    Calculator(){
+    Calculator() {
     	//JPanel
     	windowContent = new JPanel();
     	BorderLayout bl = new BorderLayout(); 
@@ -38,72 +42,74 @@ public class Calculator {
     	displayField = new JTextField(30);
     	windowContent.add("North",displayField);
 
- // Create buttons using constructor of the  
- // class JButton that takes the label of the 
- // button as a parameter 
+		button0 = new JButton("0");
+		button1 = new JButton("1");
+		button2 = new JButton("2");
+		button3 = new JButton("3");
+		button4 = new JButton("4");
+		button5 = new JButton("5");
+		button6 = new JButton("6");
+		button7 = new JButton("7");
+		button8 = new JButton("8");
+		button9 = new JButton("9");
+		buttonPoint = new JButton(".");
+		buttonEqual = new JButton("=");
+		buttonPlus = new JButton("+");
+		buttonMinus = new JButton("-");
+		buttonMult = new JButton("*");
+		buttonDiv = new JButton("/");
 
-  button0=new JButton("0");
-  button1=new JButton("1");
-  button2=new JButton("2");
-  button3=new JButton("3");
-  button4=new JButton("4");
-  button5=new JButton("5");
-  button6=new JButton("6");
- button7=new JButton("7");
- button8=new JButton("8");
-  button9=new JButton("9");
-  buttonPoint = new JButton(".");
-  buttonEqual=new JButton("=");
+		p1 = new JPanel();
+		GridLayout gl = new GridLayout(4,4); 
+		p1.setLayout(gl);
 
- // Create the panel with the GridLayout with 12 buttons – 
-//10 numeric ones, period, and the equal sign   
+		//Add buttons
+		p1.add(button7);
+		p1.add(button8);
+		p1.add(button9);
+		p1.add(buttonMult);
+		p1.add(button4);
+		p1.add(button5);
+		p1.add(button6);
+		p1.add(buttonMinus);
+		p1.add(button1);
+		p1.add(button2);
+		p1.add(button3);
+		p1.add(buttonPlus);
+		p1.add(buttonDiv);
+		p1.add(button0);
+		p1.add(buttonPoint);
+		p1.add(buttonEqual);
+		
+		CalculatorEngine calcEngine = new CalculatorEngine(this);
+		button0.addActionListener(calcEngine);
+		button1.addActionListener(calcEngine);
+		button2.addActionListener(calcEngine);
+		button3.addActionListener(calcEngine);
+		button4.addActionListener(calcEngine);
+		button5.addActionListener(calcEngine);
+		button6.addActionListener(calcEngine);
+		button7.addActionListener(calcEngine);
+		button8.addActionListener(calcEngine);
+		button9.addActionListener(calcEngine);
+		buttonPoint.addActionListener(calcEngine);
+		buttonEqual.addActionListener(calcEngine);
+		buttonPlus.addActionListener(calcEngine);
+		buttonMinus.addActionListener(calcEngine);
+		buttonMult.addActionListener(calcEngine);
+		buttonDiv.addActionListener(calcEngine);
+			          
+		windowContent.add("Center",p1);
+        
+		JFrame frame = new JFrame("Calculator");
+		frame.setContentPane(windowContent);
+		//Seteaza automat dimensiunea 
+		frame.pack();
+		
+		frame.setVisible(true);
+    }
 
-	  p1 = new JPanel();
-	  GridLayout gl =new GridLayout(4,3); 
-	  p1.setLayout(gl);
-
- //  Add window controls to the panel p1
-  p1.add(button1);
-  p1.add(button2);
-  p1.add(button3);
-  p1.add(button4);
-  p1.add(button5);
-  p1.add(button6);
-  p1.add(button7);
-  p1.add(button8);
-  p1.add(button9);
-  p1.add(button0);
-  p1.add(buttonPoint);
-  p1.add(buttonEqual);
-  
-  
-  CalculatorEngine calcEngine = new CalculatorEngine(this);
-  button0.addActionListener(calcEngine);
-  button1.addActionListener(calcEngine);
-  button2.addActionListener(calcEngine);
-  button3.addActionListener(calcEngine);
-  button4.addActionListener(calcEngine);
-
-
-
-// Add the panel p1 to the center of the window				          
-       windowContent.add("Center",p1);
-
-//Create the frame and set its content pane	               
-JFrame frame = new JFrame("Calculator");
-       frame.setContentPane(windowContent);
-
- // Set the size of the window to be big enough to accommodate all controls 		
-   frame.pack(); 
-
- // Display the window
-  frame.setVisible(true);
-     }
-
-
-     public static void main(String[] args) {
-
-	  new Calculator();
-     
-     }
+    public static void main(String[] args) {
+    	new Calculator();
+    }
 }
