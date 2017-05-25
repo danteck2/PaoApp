@@ -6,16 +6,20 @@ import javax.swing.JButton;
 
 public class CalculatorEngine implements ActionListener {
  
- Calculator parent; // a reference to the Calculator
-	
- // Constructor stores the reference to the 
- // Calculator window in  the member variable parent
- CalculatorEngine(Calculator parent){
-   this.parent = parent;
- }
+	Calculator parent;
 
- public void actionPerformed(ActionEvent e){
-   // Get the source of this action
+	CalculatorEngine(Calculator parent){
+		this.parent = parent;
+	}
+
+	public void actionPerformed(ActionEvent e){
+		
+		
+		
+		
+		
+		
+		
    JButton clickedButton =  (JButton) e.getSource();
    	
    // Get the existing text from the Calculator’s
@@ -27,5 +31,5 @@ public class CalculatorEngine implements ActionListener {
    	
    parent.setDisplayValue(dispFieldText + 
                                    clickedButtonLabel);
- }
+	}
 }
