@@ -1,2 +1,2 @@
 # PaoApp
-Proiect PAO
+Proiect PAO Calculatorul
